@@ -2,10 +2,10 @@ services:
   - type: web
     name: manga-springboot
     env: java
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/manga-0.0.1-SNAPSHOT.jar"
+    buildCommand: |
+      echo "JAVA_HOME is $JAVA_HOME"
+      ./mvnw package
+    startCommand: java -jar target/Manga_Springboot-0.0.1-SNAPSHOT.jar
     envVars:
-      - key: JAVA_VERSION
-        value: 21
-      - key: SPRING_DATASOURCE_URL
-        value: jdbc:...
+      - key: JAVA_HOME
+        value: /opt/render/project/.jdk
