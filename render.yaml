@@ -1,11 +1,7 @@
 services:
   - type: web
     name: manga-springboot
-    env: java
-    buildCommand: |
-      echo "JAVA_HOME is $JAVA_HOME"
-      ./mvnw package
-    startCommand: java -jar target/Manga_Springboot-0.0.1-SNAPSHOT.jar
-    envVars:
-      - key: JAVA_HOME
-        value: /opt/render/project/.jdk
+    env: docker
+    dockerfilePath: Dockerfile
+    plan: free
+    autoDeploy: true
