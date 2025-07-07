@@ -14,5 +14,6 @@ RUN ./mvnw clean package -DskipTests
 EXPOSE 8080
 
 # Run the JAR file
-startCommand: java -jar target/manga-0.0.1-SNAPSHOT.jar
+CMD ["java", "-jar", "target/manga-0.0.1-SNAPSHOT.jar"]
+
 
