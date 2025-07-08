@@ -3,6 +3,8 @@ package com.mangalist.manga.dto;
 import com.mangalist.manga.model.MangaStatus;
 import com.mangalist.manga.model.ProgressStatus;
 import lombok.Data;
+import org.springframework.web.multipart.MultipartFile;
+
 
 @Data
 public class MangaRequest {
@@ -13,6 +15,8 @@ public class MangaRequest {
     private MangaStatus status;
     private ProgressStatus releaseStatus;
     private Long userId;
+    private MultipartFile coverImage;
+
 
     // Getters and Setters
 }
