@@ -32,6 +32,10 @@ public class MangaController {
         manga.setStatus(request.getStatus());
         manga.setReleaseStatus(request.getReleaseStatus());
         manga.setComment(request.getComment());
+        manga.setCoverImage(request.getCoverImage());
+        System.out.println("Received cover image URL: " + request.getCoverImage());
+
+
 
         if (manga.getCompletedChapters() != null && manga.getTotalChapters() != null &&
                 manga.getCompletedChapters().equals(manga.getTotalChapters())) {
@@ -48,9 +52,24 @@ public class MangaController {
     }
 
     @PutMapping("/{id}")
-    public Manga updateManga(@PathVariable Long id, @RequestBody Manga updatedManga) {
-        return mangaService.updateManga(id, updatedManga);
+    public Manga updateManga(@PathVariable Long id, @RequestBody MangaRequest request) {
+        Manga manga = new Manga();
+        manga.setName(request.getName());
+        manga.setTotalChapters(request.getTotalChapters());
+        manga.setCompletedChapters(request.getCompletedChapters());
+        manga.setStatus(request.getStatus());
+        manga.setReleaseStatus(request.getReleaseStatus());
+        manga.setComment(request.getComment());
+        manga.setCoverImage(request.getCoverImage());
+
+        if (manga.getCompletedChapters() != null && manga.getTotalChapters() != null &&
+                manga.getCompletedChapters().equals(manga.getTotalChapters())) {
+            manga.setStatus(MangaStatus.Completed);
+        }
+
+        return mangaService.updateManga(id, manga);
     }
+
 
     @DeleteMapping("/{id}")
     public void deleteManga(@PathVariable Long id) {

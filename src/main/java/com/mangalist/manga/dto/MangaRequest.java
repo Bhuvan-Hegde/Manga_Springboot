@@ -13,6 +13,7 @@ public class MangaRequest {
     private MangaStatus status;
     private ProgressStatus releaseStatus;
     private Long userId;
+    private String coverImage;
 
     // Getters and Setters
 }
