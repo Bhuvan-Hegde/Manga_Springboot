@@ -53,12 +53,12 @@ public class SecurityConfig {
     }
 
     @Bean
-public CorsFilter corsFilter() {
+    public CorsFilter corsFilter() {
     CorsConfiguration config = new CorsConfiguration();
     config.setAllowCredentials(true);
     config.setAllowedOrigins(List.of(
         "https://manga-frontend-mauve.vercel.app", 
-        "http://localhost:3000" // optional for local dev
+        "http://localhost:5173"
     ));
     config.setAllowedHeaders(List.of("*"));
     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
